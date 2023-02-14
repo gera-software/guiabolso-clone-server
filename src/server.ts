@@ -8,8 +8,12 @@ const route = Router()
 
 app.use(express.json())
 
-route.get('/', (req: Request, res: Response) => {
-  res.json({ message: 'hello world with Typescript' })
+route.get('/', async (req: Request, res: Response) => {
+  console.log('start') 
+  const delay: number = +(req.query.delay ?? 0) * 1000
+  await new Promise(resolve => setTimeout(resolve, delay));
+  console.log('end ' + delay + 'ms')
+  res.json({ message: 'hello world with Typescript after ' + delay + 'ms' })
 })
 
 app.use(route)
