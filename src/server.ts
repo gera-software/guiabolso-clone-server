@@ -2,9 +2,10 @@ import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-d
 dotenv.config()
 import express from 'express'
 import { Router, Request, Response } from 'express'
-import hello from './folder/hello'
-import pluggy from './folder/pluggy'
-import getInstitutions from './folder/getInstitutions'
+import hello from './api/hello'
+import pluggy from './api/pluggy'
+import getInstitutions from './api/getInstitutions'
+import syncTransactions from './api/syncTransactions'
 
 const app = express()
 const port = 3333
@@ -27,6 +28,8 @@ route.get('/institutions', async (req: Request, res: Response) => {
   const result = await getInstitutions()
   res.json(result)
 })
+
+route.post('/sync', syncTransactions)
 
 app.use(route)
 

@@ -1,6 +1,6 @@
 {
   "name": "guiabolso-clone-server",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Servidor para execução de tarefas de longa duração que não podem ser colocada em serveless functions",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
