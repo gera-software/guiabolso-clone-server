@@ -6,6 +6,7 @@ export default async function(req: Request, res: Response) {
     console.time('SYNC')
     const accountId = req.query.accountId?.toString() ?? ''
     const from = req.query.from?.toString() ?? ''
+    console.log('ACCOUNT ID: ', accountId, 'FROM: ', from)
 
     let result: AccountSummaryDTO | null
     try {
