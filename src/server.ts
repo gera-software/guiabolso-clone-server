@@ -4,6 +4,7 @@ import express from 'express'
 import { Router, Request, Response } from 'express'
 import hello from './folder/hello'
 import pluggy from './folder/pluggy'
+import getInstitutions from './folder/getInstitutions'
 
 const app = express()
 const port = 3333
@@ -19,6 +20,11 @@ route.get('/', async (req: Request, res: Response) => {
 
 route.get('/accounts', async (req: Request, res: Response) => {
   const result = await pluggy(req.query.itemId as string)
+  res.json(result)
+})
+
+route.get('/institutions', async (req: Request, res: Response) => {
+  const result = await getInstitutions()
   res.json(result)
 })
 
